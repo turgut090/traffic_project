@@ -20,6 +20,9 @@ jobs:
 
 workflows:
   version: 2
+  commit:
+    jobs:
+      - run_script
   scheduled_workflow:
     triggers:
       - schedule:
