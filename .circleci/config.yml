@@ -20,10 +20,10 @@ jobs:
 
 workflows:
   version: 2
-  schedule:
+  scheduled_workflow:
     triggers:
-      - schedule:
-          cron: "*/5 * * * *"  # Every 5 minutes
+      - cron:
+          expression: "*/5 * * * *"  # Every 5 minutes
           filters:
             branches:
               only:
