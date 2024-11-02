@@ -1,0 +1,32 @@
+version: 2.1
+
+jobs:
+  run_script:
+    docker:
+      - image: circleci/python:3.10
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            pip install requests pandas blomp_api
+      - run:
+          name: Run json.py Script
+          command: |
+            python json_waze.py
+          environment:
+            MAIL: $MAIL
+            PASSWORD: $PASSWORD
+
+workflows:
+  version: 2
+  schedule:
+    triggers:
+      - schedule:
+          cron: "*/5 * * * *"  # Every 5 minutes
+          filters:
+            branches:
+              only:
+                - main
+    jobs:
+      - run_script
