@@ -23,10 +23,10 @@ workflows:
   scheduled_workflow:
     triggers:
       - schedule:
-          - cron: "*/5 * * * *"  # Every 5 minutes
-            filters:
-              branches:
-                only:
-                  - main
+          cron: "*/5 * * * *"  # Every 5 minutes
+          filters:
+            branches:
+              only:
+                - main
     jobs:
       - run_script
