@@ -38,7 +38,7 @@ def main():
         json.dump(data, f)
 
     root = Blomp(MAIL, PASSWORD)
-    root.get_folder_by_name("waze").upload(filename)
+    root.get_root_directory().get_folder_by_name("waze").upload(filename)
 
     print(f"Response saved to {filename}")
 
