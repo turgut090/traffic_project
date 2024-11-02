@@ -37,7 +37,7 @@ def main():
     with gzip.open(filename, 'wt', encoding='utf-8') as f:
         json.dump(data, f)
 
-    blomp = Blomp(MAIL, PASSWORD)
+    root = Blomp(MAIL, PASSWORD)
     root.get_folder_by_name("waze").upload(filename)
 
     print(f"Response saved to {filename}")
