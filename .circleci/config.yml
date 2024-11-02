@@ -9,27 +9,22 @@ jobs:
       - run:
           name: Install dependencies
           command: |
-            pip install requests pandas blomp_api
+            pip install requests pandas blomp-api
       - run:
           name: Run json.py Script
-          command: |
-            python json_waze.py
           environment:
             MAIL: $MAIL
             PASSWORD: $PASSWORD
+          command: python json.py
 
 workflows:
   version: 2
-  commit:
-    jobs:
-      - run_script
   scheduled_workflow:
     triggers:
       - schedule:
-          cron: "*/5 * * * *"  # Every 5 minutes
+          cron: "*/5 * * * *"
           filters:
             branches:
-              only:
-                - main
+              only: main
     jobs:
       - run_script
