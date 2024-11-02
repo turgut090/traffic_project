@@ -28,4 +28,4 @@ jobs:
           MAIL: ${{ secrets.MAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          python json.py
+          python json_waze.py
