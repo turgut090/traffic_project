@@ -1,7 +1,11 @@
+name: Run Waze API Script Every 5 Minutes
 
 on:
   schedule:
     - cron: '*/5 * * * *'  # This runs the workflow every 5 minutes
+  push:
+    branches:
+      - main  # You can specify a branch, or remove this line to trigger on any branch push
 
 jobs:
   run-script:
